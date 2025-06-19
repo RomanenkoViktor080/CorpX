@@ -23,7 +23,6 @@ public class KafkaConfig {
     public ProducerFactory<String, MyMsg> producerFactory() {
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-//        config.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(config);
@@ -31,6 +30,14 @@ public class KafkaConfig {
     @Bean
     public NewTopic taskTopic() {
         return TopicBuilder.name("topic-name")
+                .partitions(1)
+                .replicas(1)
+                .build();
+    }
+
+    @Bean
+    public NewTopic taskTopicTwo() {
+        return TopicBuilder.name("topic-name-two")
                 .partitions(1)
                 .replicas(1)
                 .build();

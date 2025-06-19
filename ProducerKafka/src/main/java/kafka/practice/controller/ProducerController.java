@@ -25,4 +25,15 @@ public class ProducerController {
                     .body("Failed to send message: " + ex.getMessage());
         }
     }
+
+    @PostMapping(value = "/produce/two")
+    public ResponseEntity<String> produceTwo(@RequestBody MyMsg myMsg) {
+        try {
+            kafkaProducerService.send("topic-name-two", myMsg);
+            return ResponseEntity.ok("Message sent successfully");
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to send message: " + ex.getMessage());
+        }
+    }
 }
