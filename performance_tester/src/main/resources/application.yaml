@@ -58,6 +58,9 @@ file:
 user-service:
   host: localhost
   port: 8080
+post-service:
+  host: localhost
+  port: 8081
 project-service:
   host: localhost
   port: 8082
