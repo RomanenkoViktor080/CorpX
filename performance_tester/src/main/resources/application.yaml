@@ -70,3 +70,8 @@ payment-service:
 url-shortener-service:
   host: localhost
   port: 8080
+
+wallet-service:
+  host: localhost
+  port: 8080
+
