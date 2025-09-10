@@ -46,3 +46,11 @@
 	path = infra
 	url = https://github.com/RomanenkoViktor080/infra.git
 	branch = master
+[submodule "promotion_service"]
+	path = promotion_service
+	url = https://github.com/RomanenkoViktor080/promotion_service.git
+	branch = master
+[submodule "search_service"]
+	path = search_service
+	url = https://github.com/RomanenkoViktor080/search_service.git
+    branch = master
